@@ -58,3 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Gem devise for emails,paswords etc.
 gem 'devise'
+
+#Gem for font-awesome.
+gem 'font-awesome-sass'
