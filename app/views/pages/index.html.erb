@@ -2,9 +2,9 @@
     <style>
         body {
             background: linear-gradient( /* somewhat transparent film on top of the BG to make it look darker. */
-                rgba(0,0,0, 0.85),
-                rgba(0,0,0, 0.85)
-                ), url("/political rally.jpg") no-repeat center center fixed
+                rgba(0,0,0, 0.7),
+                rgba(0,0,0, 0.7)
+                ), url("/bg.jpg") no-repeat center center fixed
             
             ; /* only display once, center horizontal and vertical, dont let scroll change position. */
             -webkit-background-size: cover;
@@ -13,68 +13,66 @@
             background-size: cover;
         }
         h1 {
-          color: white;
-          font-weight: bold;
+            color: white;
+            font-weight: bold;
+        }
+        .container-index {
+            margin-right: 15%;
+            margin-left: 15%;
         }
         .text {
-          color: white;
-          font-weight: 300;
-          font-size: 150%;
+            color: white;
+            font-weight: 300;
+            font-size: 150%;
         }
         .footer-links {
-          display: inline-block;
-          text-align: center;
-          color: white;
-          margin-top: 30%;
-          font-size: 75%;
+            text-align: center;
+            color: white;
+            margin-top: 30%;
+            font-size: 75%;
         }
-        
-        
         .log-in {
-          background-color: rgba(201,229,255,0.50);
-            float: left;
-            width: 350px;
-            height: 200px;
-            margin-top: 0;
-        }
-        .sign-up {
-          background-color: rgba(201,229,255,0.50);
             float: right;
             width: 300px;
-            height: 450px;
-            border: 25px;
+            height: 150px;
+            margin-top: 7.5%;
         }
-        
-        
-        
+        .sign-up {
+            float: right;
+            width: 300px;
+            height: 250px;
+        }
+        .log-in-form {
+            margin: 5px;
+        }
     </style>
-   
-      <div class="col-sm-12">
-        <h1>Welcome to Just Your Vote.</h1>
-        <p class="text">
-        Find out what the World really thinks.<br><br>
-        Fed up of "fake news"?<br> Of being force fed "anaylsis" by self-appointed "experts"?<br><br>
-        Ask your Question.<br>
-        And find out what the World really thinks.<br>
-        <p>
-      </div>
-
-        <div  class="log-in panel">  
-      <%= render '/components/log_in' %>
-        </div> 
-      
-        <div class="sign-up panel">
-      <%= render '/components/sign_up' %>
-        </div> 
-  
-
-      <div>
-        <p class="footer-links">About   Help   Jobs   Privacy   Cookies   Ads  Brand   Advertise   © 2017 Twitter</p>
-      </div>
-      
     
-    
-  <% else # if the user IS signed in, render the following %>
+    <div class="container-index row">
+        <div class="col-sm-6">
+            <h1>Welcome to Flutter.</h1>
+            <p class="text">
+                Connect with your buddies. Chat with new friends.<br>
+                Share your adventures. Have fun! <br>
+                Just like a blog, but with less characters!
+            </p>
+        </div>
+        <div class="col-sm-6">
+                   <div class="log-in panel">
+                       Log In
+                    </div> 
+                    
+                   <div class="sign-up panel">
+                        Sign Up
+                   </div> 
+        </div>
+        
+        <div class="col-sm-12">
+            <p class="footer-links">About  Help  Blog  Status  Jobs  Terms  Privacy  Cookies  Ads  info  Brand  Advertise  Businesses  Media  Developers  Directory © 2016 Flutter</p>
+        </div>
+        
+    </div>
+
+<% else # if the user IS signed in, render the following %>
 
     <script>document.location = "/home"</script>
 

@@ -61,3 +61,6 @@ gem 'devise'
 
 #Gem for font-awesome.
 gem 'font-awesome-sass'
+
+# gem for voting on a model
+gem 'acts_as_votable', '~> 0.11.1'

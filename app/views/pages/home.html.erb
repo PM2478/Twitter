@@ -1,85 +1,86 @@
-<a name="top"></a>
+<style>
 
-
-<div class="jumbotron">
-  <div class="container">
-    <div class="page-header">
-      <h1>Example page header <small>Subtext for header</small></h1>
-    </div>
-  </div>
-</div>
-
-<div>
-      <%= render '/components/post_form' %>
-</div>
+</style>
 
 <div class="row">
-<div class="card" style="width: 10rem";>
-  <div class="card-body">
-    <h4 class="card-title">stats</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
+    <div class="col-xs-3">
+      
+        <div class="panel panel-default">
+          <div class="panel-image hide-panel-body">  
+            <img src="/banner.jpg" class="panel-image-preview">
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-2"><img src="/avatar.png" height="50px" width="50px" class="rounded-img home-avatar"></div>
+                <div class="col-sm-10"><h4 style="text-align: center;"><%= current_user.username %></h4></div>
+                <div class="col-sm-12" style="margin-top: 10px;">
+                  <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">POSTS<br>
+                    <h6 style="color: #0084B4; font-size: 200%;"><%= current_user.posts.count %></h6>
+                  </div>
+                  <div class="col-sm-6" style="font-size: 80%; opacity: 0.7;">FOLLOWERS<br>
+                    <h6 style="color: #0084B4; font-size: 200%;"><%= current_user.followers.count %></h6>
+                  </div>
+                </div>
+            </div>
 
-<div>
-<% for @p in @posts %>
-<div class="card" style="width: 20rem;">
-  <div class="panel-body row">
-  <div class="col-sm-1">
-    <img src="/anonymous.png" class="rounded-img" height="55px" width="55px" >
-  </div>
-  <div class="col-sm-11">
-    <span class="post-owner"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %></a></span>
-    <span class="post-creation">- <%= @p.created_at.to_formatted_s(:short) %></span>
-  </div>
-  </div>
-  <div>
-    <h4 class="card-title"><%= @p.content %></h4>
-   <div class="col-sm-12">
-              <p class="fontawe-links">
-                <a href="#"> <i class="fa fa-reply" aria-hidden="true"></i></a>
-                <a href="#"><i style="padding-left:75px;" class="fa fa-retweet" aria-hidden="true"></i>
-                <a href="#"><i style="padding-left:75px;" class="fa fa-heart" aria-hidden="true"></i>
-                <a href="#"><i style="padding-left:75px;" class="fa fa-envelope-o" aria-hidden="true"></i>
+          </div>
+        </div>
+        
+        <div class="panel panel-default">
+          <div class="panel-body">
+             <h5 style="color: grey; font-size: 125%;">Trends</h5>
+              <a href="">#Trend #1</a><br>
+                <span style="color: grey;">31k Posts</span><br><br>
+              <a href="">#Trend #2</a><br>
+                <span style="color: grey;">25k Posts</span><br><br>
+              <a href="">#Trend #3</a><br>
+                <span style="color: grey;">16k Posts</span><br><br>
+          </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <%= render '/components/post_form' %><br><br>
+        
+        <% for @p in @posts %>
+        <div class="panel panel-default post-panel">
+          <div class="panel-body row">
+            
+            <div class="col-sm-1">
+              <img src="/avatar.png" class="rounded-img" height="50px" width="50px"></img>
+            </div>
+            <div class="col-sm-11">
+              <p class="post-title"><span class="post-owner"><a href="/user/<%= User.find(@p.user_id).username %>"><%= User.find(@p.user_id).username %></a></span> <span class="post-creation">- <%= @p.created_at.to_formatted_s(:short) %></span></p>
+              <p class="post-content"><%= @p.content %></p>
+            </div>
+            
+            <div class="col-sm-12">
+              <p class="post-links">
+                <span class="glyphicon glyphicon-comment g-links" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-retweet g-links" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-heart g-links" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-option-horizontal g-links" aria-hidden="true"></span>
+                <a href="">View conversation</a>
               </p>
-  </div>  
+            </div>
+            
+          </div>
+        </div>
+        <% end %>
+        
+        <div class="panel panel-default post-panel">
+          <div class="panel-body row">
+            <div class="col-sm-12">
+            <center><img src="/icon.png" height="25px" width="25px"></img>
+              <a href="#top"><p class="opacity: .7;">Back to top <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></p></a></center>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p style="opacity: 0.5; font-size: 90%;">© 2016 Flutter  About  Help  Terms  Privacy  Cookies  Ads Info  Brand  Blog  Status  Apps  Jobs  Advertise  Businesses  Media  Developers</p>
+          </div>
+        </div>
+    </div>
 </div>
-<% end %>
-</div>
-
-
-<div class="card" style="width: 20rem;">
-  <div class="card-body">
-    <h4 class="card-title">feed</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-
-<div class="card" style="width: 10rem;">
-  <div class="card-body">
-    <h4 class="card-title">about</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-</div>
-
-<div class="card" style="width: 10rem;">
-  <div class="card-body">
-    <h4 class="card-title">trends</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-
-<center><a href="#top">Back to top</a>
