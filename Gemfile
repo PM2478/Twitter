@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 #Bootstrap JavaScript depends on jQuery. If you're using Rails 5.1+, add the jquery-rails gem to your Gemfile:
 gem 'jquery-rails'
-#import for bootstrap, twitter UI components.
+#import for bootstrap, JustYourVote UI components.
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
