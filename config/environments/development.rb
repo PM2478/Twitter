@@ -37,6 +37,8 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+
+  
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
@@ -58,18 +60,7 @@ Rails.application.configure do
   # To send emails to check if user email valid or not(self comment)
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
-  config.action_mailer.delivery_method = :smtp
   
-  
-  config.action_mailer.smtp_settings = {
-    user_name:      ENV['SENDMAIL_USERNAME'],
-    password:       ENV['SENDMAIL_PASSWORD'],
-    domain:         ENV['MAIL_HOST'],
-    address:       'smtp.gmail.com',
-    port:          '587',
-    authentication: :plain,
-    enable_starttls_auto: true
 
     
   
